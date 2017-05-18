@@ -1,0 +1,22 @@
+.container {
+  font-family: Helvetica, sans-serif;
+}
+
+:global(body) {
+  background: #0085f8;
+  color: #f2f2f2;
+  margin: 0;
+}
+
+footer {
+  margin: 30px;
+  text-align: center;
+}
+
+footer a {
+  border-radius: 5px;
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 10px 20px;
+  color: white;
+}

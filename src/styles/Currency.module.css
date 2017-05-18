@@ -1,0 +1,15 @@
+.currencyItem {
+  background: #0078d5;
+  padding: 30px 20px;
+  border-bottom: 1px solid #0068b8;
+  list-style: none;
+  overflow: hidden;
+}
+
+.source {
+  float: left;
+}
+
+.target {
+  float: right;
+}

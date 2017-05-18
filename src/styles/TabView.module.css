@@ -1,0 +1,28 @@
+.header {
+  text-align: center;
+  margin: 0;
+  padding: 20px;
+}
+
+.header li {
+  display: inline-block;
+  margin: 0;
+  padding: 0;
+}
+
+.header li a {
+  text-decoration: none;
+  border: 1px solid white;
+  padding: 7px 10px;
+  width: 100px;
+  display: inline-block;
+  font-size: 0.9em;
+  margin-right: -4px;
+  color: white;
+}
+
+.header li.current a {
+  background: white;
+  color: #0085f8;
+}
+

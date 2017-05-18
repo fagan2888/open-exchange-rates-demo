@@ -1,0 +1,32 @@
+.converterItem {
+  background: #0078d5;
+  padding: 30px 20px;
+  border-bottom: 1px solid #0068b8;
+  list-style: none;
+  overflow: hidden;
+}
+
+.currency {
+  float: left;
+}
+
+.form {
+  float: right;
+}
+
+.form input {
+  background: transparent;
+  border: none;
+  font-size: 1.4em;
+  width: 200px;
+  margin-top: -6px;
+  outline: none;
+  color: #fff;
+  text-align: right;
+  padding-right: 5px;
+}
+
+.form input::-webkit-inner-spin-button,
+.form input::-webkit-outer-spin-button {
+  -webkit-appearance: none;
+}
