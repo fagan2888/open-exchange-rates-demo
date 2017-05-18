@@ -19,6 +19,17 @@
   font-size: 0.9em;
   margin-right: -4px;
   color: white;
+  border-radius: 5px;
+}
+
+.header li:first-child a {
+  border-top-right-radius: 0;
+  border-bottom-right-radius: 0;
+}
+
+.header li:last-child a {
+  border-top-left-radius: 0;
+  border-bottom-left-radius: 0;
 }
 
 .header li.current a {

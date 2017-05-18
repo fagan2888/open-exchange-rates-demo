@@ -1,4 +1,5 @@
 import React, { Component } from 'react';
+import isomorphicFetch from 'isomorphic-fetch';
 
 import { APP_ID } from './constants';
 import Currencies from './components/Currencies';
@@ -35,7 +36,7 @@ export default class Container extends Component {
   }
 
   fetchCurrencies() {
-    fetch(
+    isomorphicFetch(
       `https://openexchangerates.org/api/latest.json?app_id=${APP_ID};`
     ).then(
       response => response.json()
