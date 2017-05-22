@@ -33,6 +33,7 @@ export default class Container extends Component {
     this.toggleExchangeDialog = this.toggleExchangeDialog.bind(this);
     this.handleNewCurrency = this.handleNewCurrency.bind(this);
     this.handleTabChange = this.handleTabChange.bind(this);
+    this.exchangeMoney = this.exchangeMoney.bind(this);
     this.fetchCurrencies = this.fetchCurrencies.bind(this);
   }
 
@@ -65,6 +66,19 @@ export default class Container extends Component {
   toggleExchangeDialog(event) {
     this.setState(({ showExchangeDialog }) => ({
       showExchangeDialog: !showExchangeDialog,
+    }));
+  }
+
+  exchangeMoney(from, to, fromAmount, toAmount) {
+    this.setState(({
+      pocket,
+    }) => ({
+      showExchangeDialog: false,
+      pocket: {
+        ...pocket,
+        [from]: pocket[from] - fromAmount,
+        [to]: pocket[to] + toAmount,
+      },
     }));
   }
 
@@ -135,7 +149,7 @@ export default class Container extends Component {
             currencies={ currencies }
             pocket={ pocket }
             onCancel={ this.toggleExchangeDialog }
-            onSave={ this.toggleExchangeDialog }
+            onSave={ this.exchangeMoney }
           />
         ) }
       </Layout>

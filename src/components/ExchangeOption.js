@@ -27,8 +27,8 @@ export default class ExchangeOption extends Component {
       direction,
       onAmountChange,
       amount,
-      editable,
       highlight,
+      prefix,
     } = this.props;
 
     return (
@@ -52,21 +52,16 @@ export default class ExchangeOption extends Component {
                   { currency }
                 </div>
                 <div className={ styles.input }>
-                  { editable 
-                      ? (
-                        <CurrencyInput
-                          onChange={ onAmountChange }
-                          value={ amount }
-                          prefix={ '-' }
-                        />
-                      )
-                      : `+${amount}`
-                  }
+                 <CurrencyInput
+                    onChange={ onAmountChange }
+                    value={ amount }
+                    prefix={ prefix }
+                  />
                 </div>
                 <div className={ classNames(styles.amount, {
                   [styles.highlighted]: highlight
                 })}>
-                  You have { pocket[currency] } { currency }
+                  You have { pocket[currency].toFixed(2) } { currency }
                 </div>
               </div>
             ))
