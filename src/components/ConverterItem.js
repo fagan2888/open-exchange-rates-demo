@@ -2,6 +2,8 @@ import React from 'react';
 
 import styles from '../styles/Converter.module.css';
 
+import CurrencyInput from './CurrencyInput';
+
 
 export default function({
   currency,
@@ -15,12 +17,10 @@ export default function({
         { currency }
       </div>
       <div className={ styles.form }>
-        <input
-          type={ 'number' }
-          step={ '0.01' }
+        <CurrencyInput
           value={ exchangeMatrix[currency] }
           onChange={ onChange }
-        /> 
+        />
       </div>
     </li>
   );

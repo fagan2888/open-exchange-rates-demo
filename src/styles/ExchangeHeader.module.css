@@ -1,0 +1,26 @@
+.header {
+  overflow: hidden;
+  padding: 30px;
+}
+
+.header a {
+  background: #35a2ff;
+  padding: 10px;
+  color: #fff;
+  text-decoration: none;
+  font-size: 0.9em;
+  border-radius: 5px;
+}
+
+.disabled {
+  opacity: 0.4;
+  cursor: default;
+}
+
+.cancel {
+  float: left;
+}
+
+.submit {
+  float: right;
+}

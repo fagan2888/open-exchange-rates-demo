@@ -14,7 +14,16 @@ export default function({
           className={ styles.newCurrencyButton }
           href={ '#' }
           onClick={ handlers.toggleCreationDialog }
-        >Add New Currency</a>
+        >
+          Add New Currency
+        </a>
+        <a
+          className={ styles.exchangeButton }
+          href={ '#' }
+          onClick={ handlers.toggleExchangeDialog }
+        >
+          Exchange
+        </a>
       </footer>
     </div>
   );

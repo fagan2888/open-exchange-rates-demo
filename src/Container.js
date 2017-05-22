@@ -6,6 +6,7 @@ import Currencies from './components/Currencies';
 import Layout from './components/Layout';
 import Converter from './components/Converter';
 import NewCurrencyDialog from './components/NewCurrencyDialog';
+import ExchangeDialog from './components/ExchangeDialog';
 import { TabView, Tab } from './components/TabView';
 
 
@@ -21,9 +22,15 @@ export default class Container extends Component {
         ['EUR', 'PLN'],
         ['EUR', 'TRY'],
       ],
+      pocket: {
+        'EUR': 20,
+        'PLN': 30,
+        'TRY': 20,
+      },
     };
 
     this.toggleCreationDialog = this.toggleCreationDialog.bind(this);
+    this.toggleExchangeDialog = this.toggleExchangeDialog.bind(this);
     this.handleNewCurrency = this.handleNewCurrency.bind(this);
     this.handleTabChange = this.handleTabChange.bind(this);
     this.fetchCurrencies = this.fetchCurrencies.bind(this);
@@ -32,7 +39,7 @@ export default class Container extends Component {
   componentDidMount() {
     this.fetchCurrencies();
 
-    setInterval(this.fetchCurrencies, 10000);
+    setInterval(this.fetchCurrencies, 30 * 1000);
   }
 
   fetchCurrencies() {
@@ -50,9 +57,15 @@ export default class Container extends Component {
   toggleCreationDialog(event) {
     event.preventDefault();
 
-    this.setState({
-      showAddCurrencyModal: !this.state.showAddCurrencyModal,
-    });
+    this.setState(({ showAddCurrencyModal }) => ({
+      showAddCurrencyModal: !showAddCurrencyModal,
+    }));
+  }
+
+  toggleExchangeDialog(event) {
+    this.setState(({ showExchangeDialog }) => ({
+      showExchangeDialog: !showExchangeDialog,
+    }));
   }
 
   handleNewCurrency(from, to) {
@@ -62,6 +75,9 @@ export default class Container extends Component {
         ...this.state.currencies,
         [from, to],
       ],
+      pocket: {
+        [from]: this.state.pocket[from] || 0,
+      },
     });
   }
 
@@ -76,13 +92,14 @@ export default class Container extends Component {
   render() {
     const {
       currencies, rates, loading, showAddCurrencyModal,
-      currentTab
+      showExchangeDialog, currentTab, pocket,
     } = this.state;
 
     return (
       <Layout
         handlers={{
           toggleCreationDialog: this.toggleCreationDialog,
+          toggleExchangeDialog: this.toggleExchangeDialog,
         }}
       >
         <TabView
@@ -110,6 +127,15 @@ export default class Container extends Component {
             rates={ rates }
             onCancel={ this.toggleCreationDialog }
             onSave={ this.handleNewCurrency }
+          />
+        ) }
+        { showExchangeDialog && (
+          <ExchangeDialog
+            rates={ rates }
+            currencies={ currencies }
+            pocket={ pocket }
+            onCancel={ this.toggleExchangeDialog }
+            onSave={ this.toggleExchangeDialog }
           />
         ) }
       </Layout>

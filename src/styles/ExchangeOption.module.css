@@ -1,0 +1,58 @@
+.slider {
+  margin: 30px 0;
+}
+
+.currency {
+  padding: 20px 30px 5px;
+  font-size: 2em;
+  float: left;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.highlighted {
+  color: red;
+}
+
+.amount {
+  font-size: 0.8em;
+  margin-left: 30px;
+  float: left;
+}
+
+.input {
+  float: right;
+  padding: 30px;
+  text-align: right;
+  width: 50%;
+  box-sizing: border-box;
+}
+
+.from {
+  background: #0085f8;
+}
+
+.from:after {
+  margin-top: 40px;
+  left: 50%;
+  border: solid transparent;
+  content: " ";
+  height: 0;
+  width: 0;
+  position: absolute;
+  pointer-events: none;
+  border-color: rgba(0, 133, 248, 0);
+  border-top-color: #0085f8;
+  border-width: 15px;
+  margin-left: -15px;
+}
+
+.to {
+  background: #0e65b0;
+  padding: 30px 0;
+  margin-top: 40px;
+}
+
+.to::before {
+
+}

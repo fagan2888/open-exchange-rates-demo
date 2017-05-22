@@ -13,20 +13,3 @@
 .form {
   float: right;
 }
-
-.form input {
-  background: transparent;
-  border: none;
-  font-size: 1.4em;
-  width: 200px;
-  margin-top: -6px;
-  outline: none;
-  color: #fff;
-  text-align: right;
-  padding-right: 5px;
-}
-
-.form input::-webkit-inner-spin-button,
-.form input::-webkit-outer-spin-button {
-  -webkit-appearance: none;
-}

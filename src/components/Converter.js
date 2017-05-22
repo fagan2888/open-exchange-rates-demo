@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 import ConverterItem from './ConverterItem';
-import { calculateCurrency } from '../utils';
+import { calculateCurrency, uniqueCurrencies } from '../utils';
 
 export default class extends Component {
   constructor(props) {
@@ -20,18 +20,7 @@ export default class extends Component {
 
   uniqueCurrencies() {
     const { currencies } = this.props;
-
-    return currencies.reduce(
-      (prev, current) => prev.concat(current),
-      []
-    ).reduce(
-      (prev, current) => (
-        prev.includes(current)
-          ? prev
-          : prev.concat(current)
-      ),
-      []
-    );
+    return uniqueCurrencies(currencies);
   }
 
   convert(updatedCurrency, value) {
@@ -61,9 +50,7 @@ export default class extends Component {
   }
 
   handleChange(updatedCurrency) {
-    return event => {
-      const value = Number(event.target.value);
-
+    return value => {
       const exchangeMatrix = this.convert(
         updatedCurrency,
         value
